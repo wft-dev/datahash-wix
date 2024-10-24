@@ -1,0 +1,87 @@
+.subdomainField {
+    border: 1px solid #afafaf;
+}
+
+.subdomainBtn {
+    border: 1px solid #29845B;
+    color: #fff;
+    background-color: #29845B;
+    margin-left: 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1;
+    min-width: unset;
+    padding: 6px 14px;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.subdomainBtn:hover {
+    background-color: #fff;
+    color: #29845B;
+    border-color: #29845B;
+}
+
+.subdomainNotes {
+    margin-top: 10px;
+}
+
+.subdomainNotes > li {
+    line-height: 1;
+}
+
+div:has(.dashboard--header) {
+    max-width: 100% !important;
+}
+
+div[data-hook="page-header-container"] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+div[data-hook="baseModalLayout-content-wrapper"]:has(.modal--subdomain) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.modal--upper {
+    box-sizing: border-box;
+}
+
+.modal--upper span {
+    line-height: 1 !important;
+}
+
+.modal--outer {
+    margin-top: 30px;
+}
+
+.modal--outer div[class$="Layout__controlButtons"] {
+    top: 6px;
+}
+
+.modal--outer svg[data-hook="close-large"] path {
+    fill: #fff;
+}
+
+.modal--btm-otr div[class$="LayoutBlocksHeader__innerContent"] {
+    padding: 0 !important;
+}
+
+.modal--btm-otr div[data-hook="baseModalLayout-content-wrapper"] {
+    padding: 0 !important;
+}
+
+.modal--btm-otr .modal--btm {
+    background-color: #CBFDE2;
+}
+
+.modal--btm-otr .modal--bottom {
+    padding: 0px 36px 8px !important;
+}
+
+.modal--btm-otr .modal--upper {
+    padding-bottom: 4px !important;
+}
+
+.modal--btm span {
+    color: #006f3d  !important;
+}

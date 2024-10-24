@@ -1,0 +1,154 @@
+<script>
+    // console.log("Version Updated 101 !!!!");
+    !(function () {
+        var e = (window.neotag = window.neotag || []);
+        (e.methods = [
+            "load",
+            "page",
+            "track",
+            "identify",
+            "alias",
+            "group",
+            "ready",
+            "reset",
+            "getAnonymousId",
+            "setAnonymousId",
+        ]),
+        (e.factory = function (t) {
+            return function () {
+                var r = Array.prototype.slice.call(arguments);
+                return r.unshift(t), e.push(r), e;
+            }
+        });
+        for (var t = 0; t < e.methods.length; t++) {
+            var r = e.methods[t];
+            e[r] = e.factory(r);
+        }
+        (e.loadJS = function (e, t) {
+            var r = window.document.createElement("script");
+            window.document.getElementsByTagName
+            (r.type = "text/javascript"),
+            (r.async = !0),
+            (r.src = "https://{{subdomain}}/neotag/neotag.min.js");
+            var a = window.document.getElementsByTagName("script")[0];
+            a.parentNode.insertBefore(r, a);
+        }),
+        e.loadJS(),
+        e.load("2AJb9OyIA0VZ5JV6idoNoOUFUa2",
+        "https://{{subdomain}}/neotag/",{
+            logLevel: "DEBUG"
+        }),
+        neotag.page();
+    })();
+
+    function sendNeoTag (eventName, data, productType) {
+        neotag.track(eventName, {
+            value: (data.price),
+            currency: data.currency,
+            products: [{
+                "category": '',
+                "sku":  data.productId,
+                "name": data.name,
+                "sku_type": productType ? productType :'product',
+                "quantity":1,
+                "price": (data.price),
+                "currency": data.currency,  
+                "index":1,
+            }],
+        });
+    }
+
+    window.wixDevelopersAnalytics.register('df123082-79e0-41b3-9bb9-94b2fe49fa4b', function report(eventName, data) { 
+        switch(eventName) { 
+            case 'productPageLoaded':
+                var productType = '';
+                var options = document.querySelector('[data-hook="core-dropdown"]');
+                if(options) {
+                    // console.log("In the varient Product");
+                    productType = 'product-group';
+                } else {
+                    // console.log("In the single product");
+                    productType = 'product';
+                }
+                // console.log("Single Product Viewed", data);
+                sendNeoTag('view_item', data, productType);
+            break; 
+            case 'AddToCart':
+                console.log("Product Added to cart", data);
+                sendNeoTag('add_to_cart', data);
+            break;
+            case 'RemoveFromCart':
+                // console.log("Product Removed from cart", data);
+                sendNeoTag('remove_from_cart', data);
+            break;
+            case 'CompleteRegistration':
+                // console.log("Logged In", data);
+                neotag.track('complete_registration');
+            break;
+            case 'InitiateCheckout':
+                neotag.track('begin_checkout', {
+                    value: (data.price / 100).toFixed(2),
+                    currency: data.currency,
+                    products: [{
+                        "category": data.category,
+                        "sku":  data.productId,
+                        "name": data.name,
+                        "sku_type":'product',
+                        "quantity":1,
+                        "price": (data.price / 100).toFixed(2),
+                        "currency": data.currency,  
+                        "index":1,
+                    }],
+                });
+            break;
+            case 'addPaymentInfo':
+                neotag.track('add_payment_info', {
+                    value: (data.price / 100).toFixed(2),
+                    currency: data.currency,
+                    products: [{
+                        "category": data.category,
+                        "sku":  data.productId,
+                        "name": data.name,
+                        "sku_type":'product',
+                        "quantity":1,
+                        "price": (data.price / 100).toFixed(2),
+                        "currency": data.currency,  
+                        "index":1,
+                    }],
+                });
+            break;
+            case 'addPaymentInfo':
+                neotag.track('add_payment_info', {
+                    value: (data.price / 100).toFixed(2),
+                    currency: data.currency,
+                    products: [{
+                        "category": data.category,
+                        "sku":  data.productId,
+                        "name": data.name,
+                        "sku_type":'product',
+                        "quantity":1,
+                        "price": (data.price / 100).toFixed(2),
+                        "currency": data.currency,  
+                        "index":1,
+                    }],
+                });
+            break;
+            case 'purchase':
+                neotag.track('purchase', {
+                    value: (data.price / 100).toFixed(2),
+                    currency: data.currency,
+                    products: [{
+                        "category": data.category,
+                        "sku":  data.productId,
+                        "name": data.name,
+                        "sku_type":'product',
+                        "quantity":1,
+                        "price": (data.price / 100).toFixed(2),
+                        "currency": data.currency,  
+                        "index":1,
+                    }],
+                });
+            break;
+        }
+    });
+</script>
