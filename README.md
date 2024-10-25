@@ -1,4 +1,4 @@
-# datahash
+# Datahash
 
 This project was bootstrapped with [Create Wix App](https://www.npmjs.com/package/@wix/create-app).  
 Read more about it in the [Wix CLI for Apps
@@ -27,6 +27,7 @@ Navigate to the project directory:
 
 ```console
 cd .\datahash-wix\
+```
 
 Install the required Dependencies
 
