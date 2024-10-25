@@ -51,7 +51,6 @@ function Index() {
       response = await response.json()
       // console.log("xmlHttp", response);
       if(response["statusCode"] == 200) {
-        console.log("adsfadsfdsa")
         setShowBtmModal(true)
         setRegiSubdomain(response.body?.["subdomain"])
       }
@@ -106,7 +105,6 @@ function Index() {
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     // return xmlHttp.responseText;
-    console.log("typeof>>>>",xmlHttp)
 
     if(xmlHttp.status != 404) {
       const data = {
@@ -159,7 +157,7 @@ function Index() {
 
           <Box backgroundColor="#fff" direction="vertical" padding="SP4" borderRadius={12} border="1px solid" borderColor="#e5e5e5"  gap="48px" margin="SP6 0 0 0">
             <Box direction="vertical">
-              <Heading size="small" >Step 1: Setup Subdomain</Heading>
+              <Heading size="small" >Step 1: Setup Your Subdomain</Heading>
               <Text><a href="https://studio.datahash.com/start?plan=web-capi-10k-free" target="_blank">Click here</a> to log in to Datahash account and setup subdomain</Text>
             </Box>
             {showBtmModal && regiSubdomain &&
